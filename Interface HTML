@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Day Attendance Dashboard</title>
+
+  <!-- External Scripts -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+
+  <!-- CSS Inline Styles (moved below) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <h1 id="header-title">Test Day Attendance – Teacher View</h1>
+
+      <div class="view-toggle">
+        <button class="active" onclick="switchView('teacher')">Teacher</button>
+        <button onclick="switchView('admin')">Admin</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="nav-item active" onclick="showDashboard()">
+          <svg class="nav-icon" ...></svg><span>Dashboard</span>
+        </div>
+
+        <div class="nav-item" onclick="showReports()">
+          <svg class="nav-icon" ...></svg><span>Reports</span>
+        </div>
+
+        <div class="nav-item" style="margin-top: auto;">
+          <svg class="nav-icon" ...></svg><span>Logout</span>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content">
+
+        <!-- Teacher View -->
+        <div id="teacher-view">
+          <div class="room-badge">Room 204</div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Student Roster</h2>
+            </div>
+
+            <table class="student-table">
+              <thead>
+                <tr>
+                  <th>Student ID</th>
+                  <th>Name</th>
+                  <th>Check 1</th>
+                  <th>Check 2</th>
+                  <th>Check 3</th>
+                  <th>Check 4</th>
+                </tr>
+              </thead>
+              <tbody id="student-roster"></tbody>
+            </table>
+
+            <div class="status-bar">
+              <div class="status-item">
+                <span class="status-label">Last Updated</span>
+                <span class="status-value" id="last-updated">--</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Total Students</span>
+                <span class="status-value">24</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Attendance Rate</span>
+                <span class="status-value" id="attendance-rate">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reports View -->
+        <div id="reports-view" style="display: none;">
+          <!-- Report cards + table… -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS moved externally -->
+  <script src="app.js"></script>
+</body>
+</html>
